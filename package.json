@@ -1,0 +1,37 @@
+{
+  "type": "module",
+  "name": "api_oblog",
+  "version": "1.0.0",
+  "description": "Création d'une API blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "dev": "nodemon --inspect index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Cassini/Data-atelier-o-blog-helene-nguyen.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "yumicode+megafredo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/O-clock-Cassini/Data-atelier-o-blog-helene-nguyen/issues"
+  },
+  "homepage": "https://github.com/O-clock-Cassini/Data-atelier-o-blog-helene-nguyen#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-jsdoc-swagger": "^1.6.8",
+    "helmet": "^5.1.0",
+    "joi": "^17.6.0",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "jest": "^28.1.1"
+  }
+}

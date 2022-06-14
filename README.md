@@ -5,7 +5,7 @@
 ## Mise en place de l'API
 
 <details>
-<summary>Détails</summary>
+    <summary>Détails</summary>
 <br>
 
 ### User stories
@@ -64,17 +64,17 @@ Pour le *Modèle Physique de Données*, nous avons utilisé PgAdmin4 pour établ
 
 ### Mise en place de la base de données
 
-<!-- <details>
+<details>
 <summary>Détails</summary>
-<br> -->
+<br>
 
 ### Migrations avec l'outil Sqitch
 
 Documentation Sqitch [ici](https://sqitch.org/docs/manual/sqitch/)
 
-    - Création d'un fichier init.sh
+- Création d'un fichier init.sh
         - Configuration et création d'une BDD
-        - Utilisation et démarrage de Sqitch 
+        - Utilisation et démarrage de Sqitch
 
 #### 1. Fichier d'initialisation (init.sh)
 
@@ -129,7 +129,6 @@ chmod +x ./init.sh
 ./init.sh
 ```
 
-
 #### 2. Déploiement de la base de données
 
 ```sh
@@ -159,7 +158,6 @@ Et voici le visuel des tables et de leurs relations :
 
 ![pgAdmin](./images/tables.JPG)
 
-
 #### 3. Préparation d'un fichier import Ad Hoc
 
 Importations ES6
@@ -176,10 +174,9 @@ import categoriesData from './categories.json' assert {type: "json"};
 import pg from 'pg';
 const client = new pg.Client()
 ```
-<!-- ^-- TODO exemple de boucle
+<!-- ^-- TODO exemple de boucle -->
 
-
-<!-- </details> -->
+</details>
 
 ### Mise en place du projet
 
@@ -187,9 +184,53 @@ const client = new pg.Client()
 <summary>Détails</summary>
 <br>
 
+1. Initialisation du projet
+
+On initialise le projet avec
+
+```sh
+npm init
+```
+
+Et on installe toutes les dépendances
+
+```sh
+npm i express dotenv pg helmet joi express-jsdoc-swagger
+```
+
+Ainsi que les dépendances dev
+
+```sh
+npm i eslint jest --save-dev
+```
+
+Vérification dans le package.json
+
+```js
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-jsdoc-swagger": "^1.6.8",
+    "helmet": "^5.1.0",
+    "joi": "^17.6.0",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.17.0",
+    "jest": "^28.1.1"
+  }
+```
+
+2. Structure des fichiers
+
+Nous sommes partis sur une architecture Model Controller avec un Datamapper pour récupérer nos données de la base de données
+
+![structure](./images/structure.jpg)
+
 </details>
 
-- Initialisation du projet
+
+- Mise en place du server
 
 - Mise en place des routes
 
