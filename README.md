@@ -3,6 +3,10 @@
 @Fredo & @Helene
 ## Mise en place de l'API
 
+<details>
+<summary>Détails</summary>
+<br>
+
 ### User stories
 
 
@@ -24,11 +28,49 @@
 
 ### MCD
 
+Voici le *Modèle Conceptuel de Données*.
+
+Structure des entités et associations faites avec [Mocodo](http://mocodo.wingi.net/)
+
+```
+BELONGS TO, 11 ARTICLE, 0N CATEGORY
+CATEGORY: code_category, route, label
+
+ARTICLE: code_article, slug, title, excerpt, content
+:
+```
+
+![Mcd](./images/mcd.jpg)
+
+Une catégorie peut contenir plusieurs articles mais un article ne possède qu'une catégorie.
 ### MLD
+
+Ci-dessous le *Modèle Logique de Données*
+
+```js
+CATEGORY ( category_id, route, label )
+ARTICLE ( article_id, slug, title, excerpt, content, #category_id )
+```
 
 ### MPD
 
+Pour le *Modèle Physique de Données*, nous avons utilisé PgAdmin4 pour établir les liens entre nos tables.
+
+![mpd](./images/MPD_oblog.jpg)
+
+</details>
+
+
+
 ### Mise en place du projet
+
+<details>
+<summary>Détails</summary>
+<br>
+
+
+
+</details>
 
 - Initialisation du projet
 
