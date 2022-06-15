@@ -1,0 +1,63 @@
+@entryPoint = http://localhost:4100
+
+
+# // ------------------------------
+# // ---------------------- ARTICLE
+# // ------------------------------
+
+### FETCH ALL ARTICLES ( GET /post )
+GET {{entryPoint}}/posts
+
+### POST ONE ARTICLES ( POST /post )
+POST {{entryPoint}}/posts
+Content-Type: application/json
+
+{
+
+}
+
+### FETCH ONE ARTICLE ( GET /post/[:id] )
+GET {{entryPoint}}/posts/1
+
+### PATCH ONE ARTICLE ( PATCH /post/[:id] )
+PATCH {{entryPoint}}/posts/1
+
+{
+
+}
+
+### DELETE ONE ARTICLE ( DELETE /post/[:id] )
+DELETE {{entryPoint}}/posts/1
+
+
+# // ------------------------------
+# // --------------------- CATEGORY
+# // ------------------------------
+
+### FETCH CATEGORY BY ARTICLE ( GET /post/category/[:id] )
+GET {{entryPoint}}/posts/category/1
+
+### FETCH ALL CATEGORIES ( GET /categories )
+GET {{entryPoint}}/categories
+
+### POST ONE GATEGORY ( POST /categories )
+POST {{entryPoint}}/categories
+Content-Type: application/json
+
+{
+
+}
+
+### FETCH ONE GATEGORY ( GET /categories/[:id] )
+GET {{entryPoint}}/categories/1
+
+### PATCH ONE GATEGORY ( PATCH /categories/[:id] )
+PATCH {{entryPoint}}/categories/1
+
+{
+    "route": "/newRoute"
+    "label": "newLabel"
+}
+
+### DELETE ONE GATEGORY ( DELETE /categories/[:id] )
+DELETE {{entryPoint}}/categories/1
