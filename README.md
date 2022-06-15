@@ -374,53 +374,70 @@ export { router };
 - Création des routes pour article.js
   
 ```js
-//TODO NE PAS OUBLIER DE RAJOUTER LES FONCTIONS
 //~ IMPORTATIONS
 import { Router } from 'express';
 const router = Router();
 
+import { fetchAllArticles, createArticle, fetchOneArticle, updateArticle, deleteArticle } from '../controllers/article.js';
+
 //~ ROUTES ARTICLE
 // GET /posts
-router.get('/posts', );
+router.get('/posts', fetchAllArticles);
 // POST /posts
-router.post('/posts', );
+router.post('/posts', createArticle);
 
-// GET /posts/[:id]
-router.get('/posts/:id', );
-// PATCH /posts/[:id]
-router.patch('/posts/:id', );
-// DELETE /posts/[:id]
-router.delete('/posts/:id', );
+// GET /posts/:id
+router.get('/posts/:id', fetchOneArticle);
+// PATCH /posts/:id
+router.patch('/posts/:id', updateArticle);
+// DELETE /posts/:id
+router.delete('/posts/:id', deleteArticle);
 
 export { router };
+
 ```
 
 - Création des routes pour category.js
 
 ```js
-//TODO NE PAS OUBLIER DE RAJOUTER LES FONCTIONS
 //~ IMPORTATIONS
 import { Router } from 'express';
 const router = Router();
 
+import {
+  fetchArticlesByCategoryId,
+  fetchAllCategories,
+  createCategory,
+  fetchOneCategory,
+  updateCategory,
+  deleteCategory
+} from '../controllers/category.js';
+
 //~ ROUTES CATEGORY
 // GET /posts/category/[:id]
-router.get('/posts/category/:id', )
+router.get('/posts/category/:id', fetchArticlesByCategoryId);
 
 // GET /categories
-router.get('/categories', )
+router.get('/categories', fetchAllCategories);
 // POST /categories
-router.post('/categories', )
+router.post('/categories', createCategory);
 
 // GET /categories/[:id]
-router.get('/categories/:id', )
+router.get('/categories/:id', fetchOneCategory);
 // PATCH /categories/[:id]
-router.patch('/categories/:id', )
+router.patch('/categories/:id', updateCategory);
 // DELETE /categories/[:id]
-router.delete('/categories/:id', )
+router.delete('/categories/:id', deleteCategory);
 
 export { router };
+
 ```
+
+Pour le test de nos routes, nous avons indiqué un message test sur le point d'entrée de nos routes.
+
+Et voilà l'affichage !
+
+![test route](./images/test.jpg)
 
 - Gestion des erreurs
   
@@ -446,19 +463,111 @@ export { _400, _404, _500 };
 
 ---
 
+### Mise en place des schémas
+
+Pour la mise en place du schéma de validation du body, nous avons utilisé le module Joi.
+
+Ci-dessous notre schéma pour chaque élément qui recevront des informations du body lors de la création ou lors de la mise à jour.
+
+*SCHEMA ARTICLE*
+
+```js
+import joi from 'joi';
+const Joi = joi;
+
+const articleSchema = Joi.object({
+  category: Joi.string(),
+  slug: Joi.string(),
+  title: Joi.string(),
+  excerpt: Joi.string(),
+  content: Joi.string()
+}).required();
+
+export { articleSchema };
+```
+
+*SCHEMA CATEGORY*
+
+```js
+import joi from 'joi';
+const Joi = joi;
+
+const categorySchema = Joi.object({
+    route: Joi.string(), 
+    label: Joi.string(),
+}).required(); 
+
+export{ categorySchema };
+```
+
+*SCHEMA VALIDATION*
+
+```js
+const validation = {
+  body(schemaCustom) {
+    //valid req.body format
+    return function(req, res, next) {
+      const { error } = schemaCustom.validate(req.body);
+      if (error) {
+        // is any error here ?
+        // if yes, error
+        return;
+      }
+
+      next();
+    };
+  }
+};
+export { validation };
+```
+
+Et voici comment nous l'avons implémenté dans les routers :
+
+*ROUTER ARTICLE*
+
+```js
+//~ IMPORTATION SCHEMA 
+import { articleSchema } from '../schema/article.schema.js';
+import { validation } from '../services/validation.js';
+
+// Exemples :
+router.post('/posts', validation.body(articleSchema), createArticle);
+router.patch('/posts/:id(\d+)', validation.body(articleSchema), updateArticle);
+```
+
+*ROUTER CATEGORY*
+
+```js
+//~ IMPORTATION SCHEMA 
+import { categorySchema } from '../schema/category.schema.js';
+import { validation } from '../services/validation.js';
+
+// Exemples :
+router.post('/categories', validation.body(categorySchema), createCategory);
+router.patch('/categories/:id(\d+)', validation.body(categorySchema), updateCategory);
+```
+
+On l'intègre sur nos routes en tant que middleware pour faire le contrôle avant le rendu et c'est la raison pour laquelle la fonction est placée avant la méthode récupérée du controller.
+
+Il ne faut donc pas oublier le `next()` pour qu'on puisse passer à la fonction suivante en cas de validation.
+
+
 ---
+
 //TODO FRAGMENTER LE README !
 Todo :
 
+<!-- - Import AD HOC -->
 - SwaggerDocs
-- Controllers => toutes les méthodes
-  - CRUD + join category
+<!-- - Controllers => toutes les méthodes -->
+- CRUD + join category + implémentations
 - Routes => functions
-  - Requêtes paramétrées ( Route path: /user/:userId(\d+)  )
-  - Utilisation de npm Joi (PATCH & POST)
-- restClient => tests des routes
+  <!-- - Requêtes paramétrées ( Route path: /user/:userId(\d+)  ) -->
+  <!-- - Utilisation de npm Joi (PATCH & POST) -->
+<!-- - restClient => tests des routes -->
 - DataMapper
   - CREATE DOMAIN ( CHECK )
+- Création d'un fichier log "error" (newDate)
 
 ```sql
 CREATE DOMAIN v_plate_fr AS TEXT

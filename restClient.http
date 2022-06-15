@@ -1,5 +1,6 @@
 @entryPoint = http://localhost:4100
 
+GET {{entryPoint}}
 
 # // ------------------------------
 # // ---------------------- ARTICLE
@@ -34,7 +35,7 @@ DELETE {{entryPoint}}/posts/1
 # // --------------------- CATEGORY
 # // ------------------------------
 
-### FETCH CATEGORY BY ARTICLE ( GET /post/category/[:id] )
+### FETCH ARTICLES BY CATEGORY ID  ( GET /post/category/[:id] )
 GET {{entryPoint}}/posts/category/1
 
 ### FETCH ALL CATEGORIES ( GET /categories )
