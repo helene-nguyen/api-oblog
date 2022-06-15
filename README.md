@@ -565,7 +565,7 @@ Todo :
   <!-- - Requêtes paramétrées ( Route path: /user/:userId(\d+)  ) -->
   <!-- - Utilisation de npm Joi (PATCH & POST) -->
 <!-- - restClient => tests des routes -->
-- DataMapper
+<!-- - DataMapper -->
   - CREATE DOMAIN ( CHECK )
 - Création d'un fichier log "error" (newDate)
 
