@@ -9,7 +9,7 @@ import { fetchArticlesByCategoryId, fetchAllCategories, createCategory, fetchOne
 
 //~ ROUTES CATEGORY
 // GET /posts/category/[:id]
-router.get('/posts/category/:id(\d+)', fetchArticlesByCategoryId);
+router.get('/posts/category/:id(\\d+)', fetchArticlesByCategoryId);
 
 // GET /categories
 router.get('/categories', fetchAllCategories);
@@ -17,10 +17,10 @@ router.get('/categories', fetchAllCategories);
 router.post('/categories', validation.body(categorySchema), createCategory);
 
 // GET /categories/[:id]
-router.get('/categories/:id(\d+)', fetchOneCategory);
+router.get('/categories/:id(\\d+)', fetchOneCategory);
 // PATCH /categories/[:id]
-router.patch('/categories/:id(\d+)', validation.body(categorySchema), updateCategory);
+router.patch('/categories/:id(\\d+)', validation.body(categorySchema), updateCategory);
 // DELETE /categories/[:id]
-router.delete('/categories/:id(\d+)', deleteCategory);
+router.delete('/categories/:id(\\d+)', deleteCategory);
 
 export { router };

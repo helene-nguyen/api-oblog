@@ -1,15 +1,19 @@
 //~ IMPORTATION DATA ARTICLE
-import { findAll, createData, findOne, updateData, deleteData } from '../datamapper/article.js';
+import { findAll, findOne, createData, updateData, deleteData } from '../datamapper/article.js';
 
 class Article {
-  constructor(articleId, articleData) {
-    this.findAll = findAll();
-    this.createData = createData(articleData);
-    this.findOne = findOne(articleId);
-    this.updateData = updateData(articleId, articleData);
-    this.deleteData = deleteData(articleId);
+
+    static async findAllArticles() { return findAll(); };
+
+    static async createArticle(articleData) { return createData(articleData); };
+    
+    static async findOneArticle(articleId) { return findOne(articleId); };
+    
+    static async updateArticle(articleId, articleData) { return updateData(articleId, articleData); }
+    
+    static async deleteArticle(articleId) { return deleteData(articleId) };
+    
   }
-}
 
 export { Article };
 

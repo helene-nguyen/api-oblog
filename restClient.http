@@ -14,21 +14,33 @@ POST {{entryPoint}}/posts
 Content-Type: application/json
 
 {
-
+    "category":"React",
+    "slug":"react-une-fausse-bonne-idee",
+    "title":"React une fausseb bonne idee",
+    "excerpt":"Ut enim ad <em>minim veniam</em>, quis nostrud exercitation ullamco <strong>laboris nisi</strong> ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et <em>dolore magna</em> aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fu",
+    "content":"sectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exer",
+    "category_id":3
 }
 
 ### FETCH ONE ARTICLE ( GET /post/[:id] )
-GET {{entryPoint}}/posts/1
+# Nos tests :
+# GET {{entryPoint}}/posts/"2"
+# GET {{entryPoint}}/posts/blablab
+# GET {{entryPoint}}/posts/200
+GET {{entryPoint}}/posts/9
 
 ### PATCH ONE ARTICLE ( PATCH /post/[:id] )
-PATCH {{entryPoint}}/posts/1
+PATCH {{entryPoint}}/posts/15
+Content-Type: application/json
 
 {
-
+    "category":"Reactoooooo",
+    "slug":"react-une-fausse-bonne-idee",
+    "title":"React une fausseb bonne idee"
 }
 
 ### DELETE ONE ARTICLE ( DELETE /post/[:id] )
-DELETE {{entryPoint}}/posts/1
+DELETE {{entryPoint}}/posts/14
 
 
 # // ------------------------------
@@ -36,7 +48,7 @@ DELETE {{entryPoint}}/posts/1
 # // ------------------------------
 
 ### FETCH ARTICLES BY CATEGORY ID  ( GET /post/category/[:id] )
-GET {{entryPoint}}/posts/category/1
+GET {{entryPoint}}/posts/category/3
 
 ### FETCH ALL CATEGORIES ( GET /categories )
 GET {{entryPoint}}/categories
@@ -46,19 +58,21 @@ POST {{entryPoint}}/categories
 Content-Type: application/json
 
 {
-
+    "route": "/newRoute",
+    "label": "newLabel"
 }
 
 ### FETCH ONE GATEGORY ( GET /categories/[:id] )
 GET {{entryPoint}}/categories/1
 
 ### PATCH ONE GATEGORY ( PATCH /categories/[:id] )
-PATCH {{entryPoint}}/categories/1
+PATCH {{entryPoint}}/categories/6
+Content-Type: application/json
 
 {
-    "route": "/newRoute"
+    "route": "/newRouteModified",
     "label": "newLabel"
 }
 
 ### DELETE ONE GATEGORY ( DELETE /categories/[:id] )
-DELETE {{entryPoint}}/categories/1
+DELETE {{entryPoint}}/categories/6

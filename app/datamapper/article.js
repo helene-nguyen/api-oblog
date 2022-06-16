@@ -12,15 +12,15 @@ async function findAll() {
 
 //~ ------------------------------------------------------------------- CREATE ARTICLE
 async function createData(articleData) {
-  const { category, slug, title, excerpt, content } = articleData;
+  let { category, slug, title, excerpt, content, category_id } = articleData;
 
   const sql = {
     text: `
-        INSERT INTO "${TABLE_NAME}
-            ("category","slug","title","excerpt","content")
+        INSERT INTO "${TABLE_NAME}"
+            ("category","slug","title","excerpt","content", "category_id")
         VALUES
-            ($1,$2,$3,$4,$5);`,
-    values: [category, slug, title, excerpt, content]
+            ($1,$2,$3,$4,$5,$6);`,
+    values: [category, slug, title, excerpt, content, category_id]
   };
 
   const result = await client.query(sql);
@@ -58,7 +58,7 @@ async function updateData(articleId, articleData) {
 
 //~ ------------------------------------------------------------------- DELETE CATEGORY
 async function deleteData(articleId) {
-  const result = await client.query(`DELETE FROM "${TABLE_NAME} WHERE "id" = $1;`, [articleId]);
+  const result = await client.query(`DELETE FROM "${TABLE_NAME}" WHERE "id" = $1;`, [articleId]);
 
   return result.rowCount;
 };

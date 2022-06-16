@@ -2,6 +2,7 @@
 import { client } from '../services/database.js';
 
 const TABLE_NAME = 'category';
+const TABLE_ARTICLE = 'article';
 
 //~ ------------------------------------------------------------------- FIND ALL CATEGORIES
 async function findAll() {
@@ -11,11 +12,11 @@ async function findAll() {
 
 //~ ------------------------------------------------------------------- CREATE CATEGORY
 async function createData(categoryData) {
-    const { route, label} = categoryData;
+    const { route, label } = categoryData;
 
     const sql = {
         text: `
-            INSERT INTO "${TABLE_NAME}
+            INSERT INTO "${TABLE_NAME}"
                 ("route", "label")
             VALUES
                 ($1,$2);`,
@@ -53,5 +54,10 @@ async function deleteData(categoryId) {
     const result = await client.query(`DELETE FROM "${TABLE_NAME}" WHERE "id" = $1;`, [categoryId]);
     return result.rowCount;
 };
+//~ ------------------------------------------------------------------- FIND ARTICLES BY CATEGORY ID
+async function findArticlesByCategoryId(categoryId) {
+    const result = await client.query(`SELECT * FROM "${TABLE_ARTICLE}" WHERE "category_id" = $1;`, [categoryId]);
+    return result.rows;
+};
 
-export { findAll, createData, findOne, updateData, deleteData };
+export { findAll, createData, findOne, updateData, deleteData, findArticlesByCategoryId };

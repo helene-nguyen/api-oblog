@@ -20,7 +20,7 @@ app.use(helmet());
 
 //~ENCODAGE
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 //~AUTORISATION DES CORS
 app.use((req, res, next) => {

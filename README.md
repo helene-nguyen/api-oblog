@@ -85,4 +85,4 @@ CHECK(
 );
 ```
 
-- Création des class MODELS (intermédiaire (avant le controller, après le dataMapper))
+<!-- - Création des class MODELS (intermédiaire (avant le controller, après le dataMapper)) -->

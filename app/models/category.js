@@ -1,14 +1,19 @@
 //~ IMPORTATION DATA CATEGORY
-import { findAll, createData, findOne, updateData, deleteData } from '../datamapper/category.js';
+import { findAll, createData, findOne, updateData, deleteData, findArticlesByCategoryId } from '../datamapper/category.js';
 
 class Category {
-  constructor(categoryId, categoryData) {
-    this.findAll = findAll();
-    this.createData = createData(categoryData);
-    this.findOne = findOne(categoryId);
-    this.updateData = updateData(categoryId, categoryData);
-    this.deleteData = deleteData(categoryId);
-  }
+
+    static async findAllCategories() { return findAll(); };
+
+    static async createCategory(categoryData) { return createData(categoryData); };
+    
+    static async findOneCategory(categoryId) { return findOne(categoryId); };
+    
+    static async updateCategory(categoryId, categoryData) { return updateData(categoryId, categoryData); }
+    
+    static async deleteCategory(categoryId) { return deleteData(categoryId); };
+
+    static async findArticlesByCategory(categoryId) { return findArticlesByCategoryId(categoryId); }
 }
 
 export { Category };
