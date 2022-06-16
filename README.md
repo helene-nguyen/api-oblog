@@ -6,7 +6,7 @@
 
 ## Etude du projet
 
-Tout le détail de notre initialisation de la gestion du projet se trouve [ici](./__docs__/01_Mise_en_place_API)
+Tout le détail de notre initialisation de la gestion du projet se trouve [ici](./__docs__/01_Mise_en_place_API.md)
 
 ## Mise en place de la base de données
 
