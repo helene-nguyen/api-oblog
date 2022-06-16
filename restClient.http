@@ -1,4 +1,4 @@
-@entryPoint = http://localhost:4100
+@entryPoint = http://localhost:4100/api/v1
 
 GET {{entryPoint}}
 

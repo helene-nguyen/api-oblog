@@ -8,7 +8,7 @@ const app = express();
 import { router } from './app/routes/index.js';
 import { _404 } from './app/controllers/errorController.js';
 
-//~MISE EN PLACE DE SWAGGER POUR LA DOC
+// //~MISE EN PLACE DE SWAGGER POUR LA DOC
 import expressJSDocSwagger from 'express-jsdoc-swagger';
 import { options } from './app/utils/swaggerDocs.js';
 

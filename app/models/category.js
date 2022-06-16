@@ -1,6 +1,7 @@
 //~ IMPORTATION DATA CATEGORY
 import { findAll, createData, findOne, updateData, deleteData, findArticlesByCategoryId } from '../datamapper/category.js';
 
+
 class Category {
 
     static async findAllCategories() { return findAll(); };

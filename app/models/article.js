@@ -1,6 +1,9 @@
 //~ IMPORTATION DATA ARTICLE
 import { findAll, findOne, createData, updateData, deleteData } from '../datamapper/article.js';
 
+/**
+ * @class
+ */
 class Article {
 
     static async findAllArticles() { return findAll(); };

@@ -62,7 +62,9 @@ Tout le détail de notre gestion des controllers c'est par [là](./__docs__/09_C
 
 ---
 
-## Notre documentation Swagger
+## Mise en place de la documentation Swagger
+
+Tout le détail de la création de notre swaggerDocs c'est par [là](./__docs__/10_swaggerDocs.md)
 
 => TODO SWAGGER LINK
 

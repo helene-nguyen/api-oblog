@@ -2,11 +2,23 @@
 import { _400, _404, _500 } from './errorController.js';
 import { Article } from '../models/article.js';
 
+/**
+ * @typedef {*}Articles
+ * @property {string} category
+ * @property {string} slug
+ * @property {string} title
+ * @property {string} excerpt
+ * @property {string} content
+ * @property {integer} category_id
+ */
+
 //~ FUNCTIONS
 
 //~ ------------------------------------------------------------- FETCH ALL ARTICLES
+
 async function fetchAllArticles(req, res) {
   try {
+    
     const articles = await Article.findAllArticles();
 
     if (articles) res.status(200).json(articles);
@@ -19,7 +31,6 @@ async function fetchAllArticles(req, res) {
 async function createArticle(req, res) {
   try {
     // Les vérifications sont faites grâce a Joi et ses schémas
-
     await Article.createArticle(req.body);
 
     return res.status(200).json(`L'article a bien été créé`);

@@ -2,9 +2,14 @@
 import { _400, _404, _500 } from './errorController.js';
 import { Category } from '../models/category.js'
 
-//~ FUNCTIONS
+/**
+ * @typedef {*} Categories
+ * @property {string} route
+ * @property {string} label
+ */
 
 //~ ------------------------------------------------------------- FETCH ARTICLES BY CATEGORY ID
+
 async function fetchArticlesByCategoryId(req, res) {
   try {
     const categoryId = +req.params.id;
