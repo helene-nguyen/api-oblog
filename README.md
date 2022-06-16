@@ -6,11 +6,11 @@
 
 ## Etude du projet
 
-Tout le détail de notre initialisation de la gestion du projet se trouve [ici](./__docs__/01_Mise%20en%20place%20API)
+Tout le détail de notre initialisation de la gestion du projet se trouve [ici](./__docs__/01_Mise_en_place_API)
 
 ## Mise en place de la base de données
 
-Tout le détail de la mise en place de la base de données et de l'outil de versioning Sqitch c'est par [là](./__docs__/02_Base%20de%20donn%C3%A9es.md)
+Tout le détail de la mise en place de la base de données et de l'outil de versioning Sqitch c'est par [là](./__docs__/02_Base_de_donnees.md)
 
 ## Initialisation du projet
 
