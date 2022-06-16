@@ -46,7 +46,6 @@ async function fetchOneArticle(req, res) {
   try {
     const articleId = +req.params.id;
 
-    // console.log(typeof articleId)
     const article = await Article.findOneArticle(articleId);
 
     if (article) res.status(200).json(article);

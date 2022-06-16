@@ -1,7 +1,10 @@
 //~ IMPORTATION DATA CATEGORY
 import { findAll, createData, findOne, updateData, deleteData, findArticlesByCategoryId } from '../datamapper/category.js';
 
-
+/**
+ * Création d'une nouvelle catégorie permettant la création, l'affichage, la mise à jour et la suppression de celle-ci
+ * @class
+ */
 class Category {
 
     static async findAllCategories() { return findAll(); };

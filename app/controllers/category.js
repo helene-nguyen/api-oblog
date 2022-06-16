@@ -9,7 +9,10 @@ import { Category } from '../models/category.js'
  */
 
 //~ ------------------------------------------------------------- FETCH ARTICLES BY CATEGORY ID
-
+/**
+ * On récupère ici les articles en fonction de l'id d'une catégorie
+ * 
+ */
 async function fetchArticlesByCategoryId(req, res) {
   try {
     const categoryId = +req.params.id;
@@ -66,14 +69,11 @@ async function updateCategory(req, res) {
 
     const categoryId = +req.params.id;
 
-    // console.log('START ----------------------------------',req.body)
     let categoryInfo = await Category.findOneCategory(categoryId);
     
     for (const key in categoryInfo) {
       req.body[key] ? req.body[key] : req.body[key] = categoryInfo[key];
     }
-    // console.log('END ----------------------------------',req.body)
-
 
     await Category.updateCategory(categoryId, req.body);
 

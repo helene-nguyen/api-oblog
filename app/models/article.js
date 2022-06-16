@@ -1,7 +1,9 @@
 //~ IMPORTATION DATA ARTICLE
 import { findAll, findOne, createData, updateData, deleteData } from '../datamapper/article.js';
 
+
 /**
+ * Création d'un nouvel article permettant la création, l'affichage, la mise à jour et la suppression de celui-ci
  * @class
  */
 class Article {

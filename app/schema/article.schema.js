@@ -10,19 +10,4 @@ const articleSchema = Joi.object({
   category_id: Joi.number()
 }).required();
 
-// Liste de tous les types :
-//     _types: Set(12) {
-//       'alternatives',
-//       'any',
-//       'array',
-//       'boolean',
-//       'date',
-//       'function',
-//       'link',
-//       'number',
-//       'object',
-//       'string',
-//       'symbol',
-//       'binary'
-//     }
 export { articleSchema };

@@ -36,6 +36,25 @@ const categorySchema = Joi.object({
 export{ categorySchema };
 ```
 
+*LISTE DE TOUS LES TYPES EXISTANTS*
+
+```js
+    _types: Set(12) {
+      'alternatives',
+      'any',
+      'array',
+      'boolean',
+      'date',
+      'function',
+      'link',
+      'number',
+      'object',
+      'string',
+      'symbol',
+      'binary'
+    }
+```
+
 *SCHEMA VALIDATION*
 
 ```js

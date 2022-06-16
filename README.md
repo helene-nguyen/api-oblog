@@ -66,27 +66,22 @@ Tout le détail de notre gestion des controllers c'est par [là](./__docs__/09_C
 
 Tout le détail de la création de notre swaggerDocs c'est par [là](./__docs__/10_swaggerDocs.md)
 
-=> TODO SWAGGER LINK
+Et voilà un aperçu de notre documentation sur les routes
 
-Todo :
+TADAAAAM
 
-<!-- - Import AD HOC -->
-- SwaggerDocs
-<!-- - Controllers => toutes les méthodes -->
-<!-- - CRUD + join category + implémentations -->
-<!-- - Routes => functions -->
-  <!-- - Requêtes paramétrées ( Route path: /user/:userId(\d+)  ) -->
-  <!-- - Utilisation de npm Joi (PATCH & POST) -->
-<!-- - restClient => tests des routes -->
-<!-- - DataMapper -->
-- CREATE DOMAIN ( CHECK )
-- Création d'un fichier log "error" (newDate)
+![swagger-jsdocs](./__docs__/img/api-oblog.gif)
 
-```sql
-CREATE DOMAIN v_plate_fr AS TEXT
-CHECK(
-     VALUE ~ '/^((?!WW|SS|[OUI])[A-Z]){2}-(\d{3})-((?!WW|SS|[OUI])[A-Z]){2}$/gm'
-);
-```
+## Gestion des erreurs
 
-<!-- - Création des class MODELS (intermédiaire (avant le controller, après le dataMapper)) -->
+Nous avons créé un fichier de logs en le laissant apparent pour afficher les tests que nous avons effectué.
+
+Tous les résultats de nos tests c'est [là](./__docs__/11_ErrorHandling.md) !
+
+## Petit mot d'adieux &#x1F618;
+
+Cette API a été conçue avec passion et nous avons conscience qu'il y a encore des choses à améliorer, ce n'est qu'une mini-apothéose.
+L'expérience fut riche et on remercie [O'Clock](https://oclock.io/) de nous avoir guidé jusque là !
+
+Hélène & Fredo
+
