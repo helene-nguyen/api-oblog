@@ -6,6 +6,7 @@ import { _400, _404, _500 } from './errorController.js';
 //~ ------------------------------------------------------------- FETCH ALL ARTICLES
 async function fetchAllArticles(req, res) {
   try {
+
   } catch (err) {
     _500(err, req, res);
   }

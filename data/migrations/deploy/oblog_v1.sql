@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS "article" (
     "slug" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "excerpt" TEXT NOT NULL,
-    "content" TEXT NOT NULL
+    "content" TEXT NOT NULL,
+    "category_id" INTEGER NOT NULL REFERENCES "category"("id")
     
 );
 

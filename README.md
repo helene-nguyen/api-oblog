@@ -51,12 +51,20 @@ Pour les requêtes à la base de données, nous avons chois de passer par un dat
 
 Tout le détail est [ici](./__docs__/07_Datamapper.md)
 
+## Mise en place des Models
+
+Mise en place des class Article et Category dans l'optique de générer de nouvelles instances.
+
+Tout le détail est [ici](./__docs__/08_Models.md)
+
 ## Mise en place des controllers
 
 ---
 
 //TODO FRAGMENTER LE README !
 Todo :
+
+
 
 <!-- - Import AD HOC -->
 - SwaggerDocs

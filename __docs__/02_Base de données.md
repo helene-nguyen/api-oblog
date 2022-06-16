@@ -92,6 +92,33 @@ Et voici le visuel des tables et de leurs relations :
 
 Importations ES6
 
+Utilisation de cette méthode dans le cas où l'on cherche à lancer.
+le fichier import_data.js directement depuis le dossier data
+
+( Path Terminal : /API_Oblog/data )
+
+En effet nous avons besoin du .env pour récupérer les variables d'environnements
+
+```js
+//! For ESMODULE, to get __dirname
+//~ IMPORTATION PATH;
+import path from 'path';
+import {fileURLToPath} from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const dotenvPath = path.resolve(__dirname, "../.env");
+
+//! Permet de fractionner notre dotenv en version ESMODULE
+import dotenv from 'dotenv';
+dotenv.config({ path: dotenvPath });
+console.log(dotenv.config({ path: dotenvPath }))
+```
+
+Dans le cas où l'on lance notre fichier import_data.js directement depuis le root de notre API
+
+( Path Terminal : /API_Oblog )
+
 ```js
 //~ IMPORTATION DOTENV
 import 'dotenv/config';
@@ -103,6 +130,17 @@ import categoriesData from './categories.json' assert {type: "json"};
 //~ IMPORTATION DE PG CLIENT
 import pg from 'pg';
 const client = new pg.Client()
+
+//? Méthode manuelle pour configurer les variables d'environnements
+// const client = new pg.Client({
+    // user: 'oblog',
+    // password: 'oblog',
+    // database: 'oblog',
+// });
+
+// ou l'on peut aussi
+import {client} from '../app/database.js';
+
 ```
 
 *Important* On ouvre la connexion à la BDD
