@@ -28,17 +28,22 @@ const router = Router();
 import { fetchAllArticles, createArticle, fetchOneArticle, updateArticle, deleteArticle } from '../controllers/article.js';
 
 //~ ROUTES ARTICLE
-// GET /posts
-router.get('/posts', fetchAllArticles);
+
+// Identifie si c'est un nombre ou non 
+// Et renvoie page 404 si ce n'est pas un nombre
+//! link https://router.vuejs.org/guide/essentials/route-matching-syntax.html#custom-regex-in-params
+//! ne pas oublier le deuxième '\'
+// GET /posts/:id
+router.get('/posts/:id(\\d+)', fetchOneArticle);
 // POST /posts
 router.post('/posts', createArticle);
 
 // GET /posts/:id
-router.get('/posts/:id', fetchOneArticle);
+router.get('/posts/:id(\\d+)', fetchOneArticle);
 // PATCH /posts/:id
-router.patch('/posts/:id', updateArticle);
+router.patch('/posts/:id(\\d+)', updateArticle);
 // DELETE /posts/:id
-router.delete('/posts/:id', deleteArticle);
+router.delete('/posts/:id(\\d+)', deleteArticle);
 
 export { router };
 
@@ -62,7 +67,7 @@ import {
 
 //~ ROUTES CATEGORY
 // GET /posts/category/[:id]
-router.get('/posts/category/:id', fetchArticlesByCategoryId);
+router.get('/posts/category/:id(\\d+)', fetchArticlesByCategoryId);
 
 // GET /categories
 router.get('/categories', fetchAllCategories);
@@ -70,11 +75,11 @@ router.get('/categories', fetchAllCategories);
 router.post('/categories', createCategory);
 
 // GET /categories/[:id]
-router.get('/categories/:id', fetchOneCategory);
+router.get('/categories/:id(\\d+)', fetchOneCategory);
 // PATCH /categories/[:id]
-router.patch('/categories/:id', updateCategory);
+router.patch('/categories/:id(\\d+)', updateCategory);
 // DELETE /categories/[:id]
-router.delete('/categories/:id', deleteCategory);
+router.delete('/categories/:id(\\d+)', deleteCategory);
 
 export { router };
 

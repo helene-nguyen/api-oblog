@@ -22,7 +22,7 @@ Le détail pour construire et lancer notre serveur se trouve [ici](./__docs__/04
 
 ## Mise en place des routes
 
-Tout le détail de notre établissement des routes à partir des instructions suivantes 
+Tout le détail de notre établissement des routes à partir des instructions suivantes
 
 => Routes nécessaire pour l'API O'blog
 
@@ -33,7 +33,6 @@ Tout le détail de notre établissement des routes à partir des instructions su
 | /posts/category/:id |   ✅   |   ❌   |   ❌   |   ❌    |
 | /categories         |   ✅   |   ✅   |   ❌   |   ❌    |
 | /categories/:id     |   ✅   |   ❌   |   ✅   |   ✅    |
-
 
 C'est par [ici](./__docs__/05_Routes.md)
 
@@ -59,18 +58,21 @@ Tout le détail est [ici](./__docs__/08_Models.md)
 
 ## Mise en place des controllers
 
+Tout le détail de notre gestion des controllers c'est par [là](./__docs__/09_Controllers.md)
+
 ---
 
-//TODO FRAGMENTER LE README !
+## Notre documentation Swagger
+
+=> TODO SWAGGER LINK
+
 Todo :
-
-
 
 <!-- - Import AD HOC -->
 - SwaggerDocs
 <!-- - Controllers => toutes les méthodes -->
-- CRUD + join category + implémentations
-- Routes => functions
+<!-- - CRUD + join category + implémentations -->
+<!-- - Routes => functions -->
   <!-- - Requêtes paramétrées ( Route path: /user/:userId(\d+)  ) -->
   <!-- - Utilisation de npm Joi (PATCH & POST) -->
 <!-- - restClient => tests des routes -->

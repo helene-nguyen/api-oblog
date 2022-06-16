@@ -8,17 +8,21 @@ Voici nos Models :
 
 ```js
 //~ IMPORTATION DATA ARTICLE
-import { findAll, createData, findOne, updateData, deleteData } from '../datamapper/article.js';
+import { findAll, findOne, createData, updateData, deleteData } from '../datamapper/article.js';
 
 class Article {
-  constructor(articleId, articleData) {
-    this.findAll = findAll();
-    this.createData = createData(articleData);
-    this.findOne = findOne(articleId);
-    this.updateData = updateData(articleId, articleData);
-    this.deleteData = deleteData(articleId);
+
+    static async findAllArticles() { return findAll(); };
+
+    static async createArticle(articleData) { return createData(articleData); };
+    
+    static async findOneArticle(articleId) { return findOne(articleId); };
+    
+    static async updateArticle(articleId, articleData) { return updateData(articleId, articleData); }
+    
+    static async deleteArticle(articleId) { return deleteData(articleId) };
+    
   }
-}
 
 export { Article };
 
@@ -29,26 +33,33 @@ export { Article };
 
 *DATAMAPPER CATEGORY*
 
-
 ```js
 //~ IMPORTATION DATA CATEGORY
-import { findAll, createData, findOne, updateData, deleteData } from '../datamapper/category.js';
+import { findAll, createData, findOne, updateData, deleteData, findArticlesByCategoryId } from '../datamapper/category.js';
 
 class Category {
-    constructor(categoryId, categoryData) {
-        this.findAll = findAll();
-        this.createData = createData(categoryData);
-        this.findOne = findOne(categoryId);
-        this.updateData = updateData(categoryId, categoryData);
-        this.deleteData = deleteData(categoryId);
-    }
+
+    static async findAllCategories() { return findAll(); };
+
+    static async createCategory(categoryData) { return createData(categoryData); };
+    
+    static async findOneCategory(categoryId) { return findOne(categoryId); };
+    
+    static async updateCategory(categoryId, categoryData) { return updateData(categoryId, categoryData); }
+    
+    static async deleteCategory(categoryId) { return deleteData(categoryId); };
+
+    static async findArticlesByCategory(categoryId) { return findArticlesByCategoryId(categoryId); }
 }
 
 export { Category };
+
 
 //? Test notre nouvelle instance ---> return "true" si ok
 // const category = new Category();
 // console.log(category instanceof Category);
 ```
+
+Pour bien séparer nos fonctions, on va définir la méthode en static.
 
 [Retour à la page d'accueil](../README.md)

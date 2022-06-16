@@ -15,7 +15,8 @@ const articleSchema = Joi.object({
   slug: Joi.string(),
   title: Joi.string(),
   excerpt: Joi.string(),
-  content: Joi.string()
+  content: Joi.string(),
+  category_id: Joi.number()
 }).required();
 
 export { articleSchema };
@@ -44,8 +45,29 @@ const validation = {
     return function(req, res, next) {
       const { error } = schemaCustom.validate(req.body);
       if (error) {
-        // is any error here ?
-        // if yes, error
+        // Est-ce qu'il y a une erreur ?
+        res.status(500).json(error.details);
+        
+        // S'il y a une erreur
+        // [
+        //   {
+        //     "message": "\"category\" must be a string",
+        //     "path": [
+        //       "category"
+        //     ],
+        //     "type": "string.base",
+        //     "context": {
+        //       "label": "category",
+        //       "value": 2,
+        //       "key": "category"
+        //     }
+        //   }
+        // ]
+
+        // Ici on cible le message directement
+        // res.status(500).json(error.details[0].message);
+        // return "\"category\" must be a string"
+
         return;
       }
 
@@ -67,7 +89,7 @@ import { validation } from '../services/validation.js';
 
 // Exemples :
 router.post('/posts', validation.body(articleSchema), createArticle);
-router.patch('/posts/:id(\d+)', validation.body(articleSchema), updateArticle);
+router.patch('/posts/:id(\\d+)', validation.body(articleSchema), updateArticle);
 ```
 
 *ROUTER CATEGORY*
@@ -79,7 +101,7 @@ import { validation } from '../services/validation.js';
 
 // Exemples :
 router.post('/categories', validation.body(categorySchema), createCategory);
-router.patch('/categories/:id(\d+)', validation.body(categorySchema), updateCategory);
+router.patch('/categories/:id(\\d+)', validation.body(categorySchema), updateCategory);
 ```
 
 On l'intègre sur nos routes en tant que middleware pour faire le contrôle avant le rendu et c'est la raison pour laquelle la fonction est placée avant la méthode récupérée du controller.
