@@ -1,7 +1,7 @@
 # OS X
 **/.DS_Store*
 **/Icon?
-**/._*
+# **/._*
 
 # Windows
 **/Thumbs.db
