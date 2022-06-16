@@ -1,5 +1,5 @@
 //~ IMPORTATIONS DES MODULES
-import { client } from '../database.js';
+import { client } from '../services/database.js';
 
 const TABLE_NAME = 'category';
 

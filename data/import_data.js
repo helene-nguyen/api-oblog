@@ -36,7 +36,7 @@ import categoriesData from './categories.json' assert {type: 'json'};
     // database: 'oblog',
 // });
 
-import {client} from '../app/database.js';
+import {client} from '../app/services/database.js';
 // console.log(client);
 
 //~ FUNCTION IMPORT AD HOC
