@@ -86,7 +86,7 @@ chmod +x ./deploy.sh
 
 Et voici le visuel des tables et de leurs relations :
 
-![pgAdmin](./img/tables.JPG)
+![pgAdmin](./img/tables.jpg)
 
 ### 3. Préparation d'un fichier import Ad Hoc
 
