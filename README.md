@@ -84,4 +84,3 @@ Cette API a été conçue avec passion et nous avons conscience qu'il y a encore
 L'expérience fut riche et on remercie [O'Clock](https://oclock.io/) de nous avoir guidé jusque là !
 
 Hélène & Fredo
-
