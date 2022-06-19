@@ -36,7 +36,6 @@ async function createArticle(req, res) {
     await Article.createArticle(req.body);
 
     return res.status(200).json(`L'article a bien été créé`);
-
   } catch (err) {
     _500(err, req, res);
   }

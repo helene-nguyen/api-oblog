@@ -28,15 +28,17 @@ import articlesData from './posts.json' assert {type: 'json'};
 import categoriesData from './categories.json' assert {type: 'json'};
 
 //~ IMPORTATION CLIENT
-// import pg from 'pg';
+import pg from 'pg';
 //? Méthode manuelle pour configurer les variables d'environnements
 // const client = new pg.Client({
-    // user: 'oblog',
-    // password: 'oblog',
-    // database: 'oblog',
+//     user: 'lemirypnwssfki',
+//     password: 'd1f436e6940150779305f3a70ca60e46fccf3b24c2f26238bbccb5c918e1634e',
+//     database: 'd2c1rnibjmkbj4',
+//     host: 'ec2-3-224-8-189.compute-1.amazonaws.com',
+//     ssl: true
 // });
 
-import {client} from '../app/services/database.js';
+// import {client} from '../app/services/database.js';
 // console.log(client);
 
 //~ FUNCTION IMPORT AD HOC

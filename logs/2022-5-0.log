@@ -1,0 +1,3 @@
+08:06:00 GMT+0200 (heure d’été d’Europe centrale) - /api/v1/posts - une instruction insert ou update sur la table « article » viole la contrainte de clé
+étrangère « article_category_id_fkey »08:06:04 GMT+0200 (heure d’été d’Europe centrale) - /api/v1/posts - une instruction insert ou update sur la table « article » viole la contrainte de clé
+étrangère « article_category_id_fkey »
