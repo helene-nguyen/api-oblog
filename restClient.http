@@ -42,7 +42,6 @@ Content-Type: application/json
 ### DELETE ONE ARTICLE ( DELETE /post/[:id] )
 DELETE {{entryPoint}}/posts/20
 
-
 # // ------------------------------
 # // --------------------- CATEGORY
 # // ------------------------------
