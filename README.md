@@ -78,6 +78,39 @@ Nous avons créé un fichier de logs en le laissant apparent pour afficher les t
 
 Tous les résultats de nos tests c'est [là](./__docs__/11_ErrorHandling.md) !
 
+## Déploiement
+
+Le déploiement de l'API a été faite sur Heroku (importation des données pas encore faite mais test de l'API effectuée).
+
+<https://oblog--api.herokuapp.com/>
+
+Et ici, notre documentation faite avec Swagger :
+
+<https://oblog--api.herokuapp.com/api-docs/>
+
+Attention !
+
+Pour la connection avec la base de données d'Heroku, il faudra bien rentrer les informations de connection de cette manière là :
+
+```js
+//~ IMPORTATION DE PG
+import pg from 'pg';
+
+//~ CREATION NEW CLIENT
+const client = new pg.Client({
+    connectionString:process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
+//~ CONNEXION
+client.connect();
+
+//~ EXPORT
+export { client }
+```
+
 ## Petit mot d'adieux &#x1F618;
 
 Cette API a été conçue avec passion et nous avons conscience qu'il y a encore des choses à améliorer, ce n'est qu'une mini-apothéose.
