@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "dev": "nodemon --inspect index.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/O-clock-Cassini/Data-atelier-o-blog-helene-nguyen#readme",
   "dependencies": {
+    "debug": "^4.3.4",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-jsdoc-swagger": "^1.6.8",

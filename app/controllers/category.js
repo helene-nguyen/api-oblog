@@ -29,7 +29,7 @@ async function fetchArticlesByCategoryId(req, res) {
 async function fetchAllCategories(req, res) {
   try {
     const categories = await Category.findAllCategories();
-
+    logger(categories);
     if (categories) res.status(200).json(categories);
     else throw new Error(`Aucune categorie n'a été trouvée`);
   } catch (err) {
