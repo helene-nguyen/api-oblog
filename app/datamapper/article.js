@@ -8,7 +8,7 @@ async function findAll() {
   const result = await client.query(`SELECT * FROM "${TABLE_NAME}";`);
 
   return result.rows;
-};
+}
 
 //~ ------------------------------------------------------------------- CREATE ARTICLE
 async function createData(articleData) {
@@ -26,14 +26,14 @@ async function createData(articleData) {
   const result = await client.query(sql);
 
   return result.rowCount;
-};
+}
 
 //~ ------------------------------------------------------------------- FIND ONE ARTICLE
 async function findOne(articleId) {
   const result = await client.query(`SELECT * FROM "${TABLE_NAME}" WHERE "id" = $1;`, [articleId]);
 
   return result.rows[0];
-};
+}
 
 //~ ------------------------------------------------------------------- UPDATE ARTICLE
 async function updateData(articleId, articleData) {
@@ -50,17 +50,23 @@ async function updateData(articleId, articleData) {
             "content" = $5
         WHERE "id" = $6;`,
     values: [category, slug, title, excerpt, content, articleId]
+    //!Autre manière de faire si on créée une fonction
+    //! dans la DB et on aura juste à faire
+
+    //! text: `SELECT update_article($1, $2)`;
+    //! values: [articleId, articleData]
   };
+
   const result = await client.query(sql);
 
   return result.rowCount;
-};
+}
 
 //~ ------------------------------------------------------------------- DELETE CATEGORY
 async function deleteData(articleId) {
   const result = await client.query(`DELETE FROM "${TABLE_NAME}" WHERE "id" = $1;`, [articleId]);
 
   return result.rowCount;
-};
+}
 
 export { findAll, createData, findOne, updateData, deleteData };

@@ -1,6 +1,6 @@
 //~ IMPORTATION ERROR
 import { _400, _404, _500 } from './errorController.js';
-import { Category } from '../models/category.js'
+import { Category } from '../models/category.js';
 
 /**
  * @typedef {*} Categories
@@ -20,7 +20,6 @@ async function fetchArticlesByCategoryId(req, res) {
     const articles = await Category.findArticlesByCategory(categoryId);
 
     res.json(articles);
-    
   } catch (err) {
     _500(err, req, res);
   }
@@ -39,10 +38,9 @@ async function fetchAllCategories(req, res) {
 //~ ------------------------------------------------------------- CREATE CATEGORY
 async function createCategory(req, res) {
   try {
-    
     await Category.createCategory(req.body);
-    
-    return res.status(200).json(`La catégorie a bien été créée`)
+
+    return res.status(200).json(`La catégorie a bien été créée`);
   } catch (err) {
     _500(err, req, res);
   }
@@ -50,7 +48,6 @@ async function createCategory(req, res) {
 //~ ------------------------------------------------------------- FETCH ONE CATEGORY
 async function fetchOneCategory(req, res) {
   try {
-
     const categoryId = +req.params.id;
 
     // console.log(typeof categoryId)
@@ -58,7 +55,6 @@ async function fetchOneCategory(req, res) {
 
     if (category) res.status(200).json(category);
     else throw new Error(`La catégorie n'existe pas`);
-    
   } catch (err) {
     _500(err, req, res);
   }
@@ -66,21 +62,17 @@ async function fetchOneCategory(req, res) {
 //~ ------------------------------------------------------------- UPDATE CATEGORY
 async function updateCategory(req, res) {
   try {
-
     const categoryId = +req.params.id;
 
     let categoryInfo = await Category.findOneCategory(categoryId);
-    
+
     for (const key in categoryInfo) {
-      req.body[key] ? req.body[key] : req.body[key] = categoryInfo[key];
+      req.body[key] ? req.body[key] : (req.body[key] = categoryInfo[key]);
     }
 
     await Category.updateCategory(categoryId, req.body);
 
     return res.status(200).json(`La catégorie a bien été modifiée`);
-
-
-
   } catch (err) {
     _500(err, req, res);
   }
@@ -88,12 +80,10 @@ async function updateCategory(req, res) {
 //~ ------------------------------------------------------------- DELETE CATEGORY
 async function deleteCategory(req, res) {
   try {
- 
     const categoryId = +req.params.id;
     await Category.deleteCategory(categoryId);
 
     return res.status(200).json(`La catégorie a bien été supprimé`);
-
   } catch (err) {
     _500(err, req, res);
   }
