@@ -1,6 +1,7 @@
 //~ IMPORTATION ERROR
 import { _400, _404, _500 } from './errorController.js';
 import { Article } from '../models/article.js';
+import Todomi from '../services/API_todomi/api_todomi.js';
 
 /**
  * @typedef {*}Articles
@@ -81,4 +82,18 @@ async function deleteArticle(req, res) {
     _500(err, req, res);
   }
 }
-export { fetchAllArticles, createArticle, fetchOneArticle, updateArticle, deleteArticle };
+
+async function fetchAllArticlesFromKali(req, res) {
+  try {
+    const path = new Todomi('http', '127.0.0.1', 4110, 'articles');
+    const result = await path.findAllArticles();
+
+    if (!result) throw new Error(`Aucun article n'a été trouvé`);
+
+    return res.status(200).json(result);
+  } catch (err) {
+    _500(err, req, res);
+  }
+}
+
+export { fetchAllArticles, createArticle, fetchOneArticle, updateArticle, deleteArticle, fetchAllArticlesFromKali };

@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 //~ ROUTER MAIN
-router.get('/api/v1', (req, res) => {
+router.get('/', (req, res) => {
   res.json("Hello, vous êtes bien sur l'API O'blog !");
 });
 

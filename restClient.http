@@ -1,4 +1,4 @@
-@entryPoint = http://localhost:4100/api/v1
+@entryPoint = http://localhost:4200/api/v1
 
 GET {{entryPoint}}
 
@@ -47,7 +47,7 @@ DELETE {{entryPoint}}/posts/20
 # // ------------------------------
 
 ### FETCH ARTICLES BY CATEGORY ID  ( GET /post/category/[:id] )
-GET {{entryPoint}}/posts/category/3
+GET {{entryPoint}}/posts/category/1234
 
 ### FETCH ALL CATEGORIES ( GET /categories )
 GET {{entryPoint}}/categories
@@ -62,7 +62,7 @@ Content-Type: application/json
 }
 
 ### FETCH ONE GATEGORY ( GET /categories/[:id] )
-GET {{entryPoint}}/categories/1
+GET {{entryPoint}}/categories/1234
 
 ### PATCH ONE GATEGORY ( PATCH /categories/[:id] )
 PATCH {{entryPoint}}/categories/6
@@ -75,3 +75,7 @@ Content-Type: application/json
 
 ### DELETE ONE GATEGORY ( DELETE /categories/[:id] )
 DELETE {{entryPoint}}/categories/6
+
+###
+
+GET {{entryPoint}}/articlesfromkali

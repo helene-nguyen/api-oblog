@@ -5,7 +5,7 @@ const router = Router();
 import { articleSchema } from '../schema/article.schema.js';
 import { validation } from '../services/validation.js';
 
-import { fetchAllArticles, createArticle, fetchOneArticle, updateArticle, deleteArticle } from '../controllers/article.js';
+import { fetchAllArticles, createArticle, fetchOneArticle, updateArticle, deleteArticle, fetchAllArticlesFromKali } from '../controllers/article.js';
 
 //~ ROUTES ARTICLE
 /**
@@ -119,5 +119,8 @@ router.patch('/api/v1/posts/:id(\\d+)', validation.body(articleSchema), updateAr
  * }
  */
 router.delete('/api/v1/posts/:id(\\d+)', deleteArticle);
+
+
+router.get('/api/v1/articlesfromkali', fetchAllArticlesFromKali);
 
 export { router };
